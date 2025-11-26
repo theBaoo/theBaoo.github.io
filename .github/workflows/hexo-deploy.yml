@@ -2,7 +2,7 @@ name: Build and deploy Hexo
 
 on:
   push:
-    branches: [ master, source ]
+    branches: [ hexo-dev ]
   workflow_dispatch:
 
 jobs:
