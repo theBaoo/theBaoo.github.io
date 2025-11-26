@@ -1,42 +1,42 @@
-name: Build and deploy Hexo
+# name: Build and deploy Hexo
 
-on:
-  push:
-    branches: [ hexo-dev ]
-  workflow_dispatch:
-  # Grant Actions write permission so the workflow can push to the repo
-permissions:
-  contents: write
-  pages: write
+# on:
+#   push:
+#     branches: [ hexo-dev ]
+#   workflow_dispatch:
+#   # Grant Actions write permission so the workflow can push to the repo
+# permissions:
+#   contents: write
+#   pages: write
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          # Don't initialize submodules to avoid errors when .gitmodules is malformed
-          submodules: false
-          # Fetch full history so deploy actions that rely on tags/branches work
-          fetch-depth: 0
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           # Don't initialize submodules to avoid errors when .gitmodules is malformed
+#           submodules: false
+#           # Fetch full history so deploy actions that rely on tags/branches work
+#           fetch-depth: 0
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
+#       - name: Use Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '18'
+#           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+#       - name: Install dependencies
+#         run: npm ci
 
-      - name: Generate Hexo site
-        run: npx hexo clean && npx hexo generate
+#       - name: Generate Hexo site
+#         run: npx hexo clean && npx hexo generate
 
-      - name: Deploy to branch `hexo-deploy`
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          publish_dir: ./public
-          publish_branch: hexo-deploy
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Deploy to branch `hexo-deploy`
+#         uses: peaceiris/actions-gh-pages@v4
+#         with:
+#           publish_dir: ./public
+#           publish_branch: hexo-deploy
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
