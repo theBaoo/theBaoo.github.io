@@ -106,4 +106,4 @@ custom_css:
 deploy:
   type: git
   repo: git@github.com:theBaoo/theBaoo.github.io.git
-  branch: hexo-dev
+  branch: hexo-deploy
