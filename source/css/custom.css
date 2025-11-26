@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+
+body {
+    font-family: "iA Writer Mono V",
+        "iA Writer Quattro S",
+        "JetBrains Mono";
+}
+
+
+/* 代码字体设置 */
+code,
+pre,
+pre code,
+.hljs,
+.highlight {
+    font-family: 'Fira Code', 'JetBrains Mono', 'SF Mono', Consolas, "Liberation Mono", Menlo, monospace !important;
+    /* 启用连字（ligatures）*/
+    font-feature-settings: "liga" 1, "calt" 1;
+    -webkit-font-feature-settings: "liga" 1, "calt" 1;
+    font-variant-ligatures: contextual;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* 行内 code 的微调 */
+code {
+    background-color: rgba(27, 31, 35, 0.05);
+    padding: 0.12em 0.3em;
+    border-radius: 4px;
+}
