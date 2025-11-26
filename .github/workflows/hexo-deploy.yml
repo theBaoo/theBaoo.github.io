@@ -4,6 +4,10 @@ on:
   push:
     branches: [ hexo-dev ]
   workflow_dispatch:
+  # Grant Actions write permission so the workflow can push to the repo
+permissions:
+  contents: write
+  pages: write
 
 jobs:
   build:
